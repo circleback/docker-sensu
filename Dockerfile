@@ -29,6 +29,8 @@ RUN git clone https://github.com/opower/sensu-metrics-relay.git /tmp/wizardvan
 RUN cp -R /tmp/wizardvan/lib/sensu/extensions/* /etc/sensu/extensions/
 RUN rm -rf /tmp/wizardvan
 
+ADD ./sensu/supervisor.conf /etc/supervisor/conf.d/sensu.conf
+ADD ./sensu/run.sh /tmp/sensu-run.sh
 
 VOLUME /etc/sensu
 VOLUME /var/log/sensu
