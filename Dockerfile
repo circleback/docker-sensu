@@ -25,8 +25,10 @@ RUN git clone https://github.com/sensu/sensu-community-plugins.git /tmp/sensu_pl
 RUN cp -Rpf /tmp/sensu_plugins/plugins /etc/sensu/
 RUN find /etc/sensu/plugins/ -name *.rb -exec chmod +x {} \;
 
-ADD supervisor.conf /etc/supervisor/conf.d/sensu.conf
-ADD run.sh /tmp/sensu-run.sh
+RUN git clone https://github.com/opower/sensu-metrics-relay.git /tmp/wizardvan
+RUN cp -R /tmp/wizardvan/lib/sensu/extensions/* /etc/sensu/extensions/
+RUN rm -rf /tmp/wizardvan
+
 
 VOLUME /etc/sensu
 VOLUME /var/log/sensu
