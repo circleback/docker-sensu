@@ -1,0 +1,10 @@
+[template]
+src   = "sensu_config.json.tmpl"
+dest  = "/etc/sensu/config.json"
+owner = "root"
+group = "root"
+mode  = "0644"
+keys = [
+  "/sensu/server",
+]
+reload_cmd = "supervisorctl restart sensu-server"

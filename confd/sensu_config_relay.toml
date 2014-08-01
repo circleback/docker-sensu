@@ -1,0 +1,10 @@
+[template]
+src   = "sensu_config_relay.json.tmpl"
+dest  = "/etc/sensu/conf.d/config_relay.json"
+owner = "root"
+group = "root"
+mode  = "0644"
+keys = [
+  "/sensu/relay",
+]
+reload_cmd = "supervisorctl restart sensu-server"
