@@ -2,17 +2,13 @@
 
 Sensu Monitoring
 
-* `docker build -t sensu .`
-* `docker run sensu`
+* `./build` - Builds both a local and remote tagged image
+* `./start` - Runs container, expects PUBLIC_IP env to be set
 
 Ports
 
-* 8080
+* 5672  - RabbitMQ
+* 15672 - RabbitMQ Admin
+* 4567  - Sensu API
 
 Environment Variables
-
-* `DASHBOARD_USER`: Sensu dashboard username (default: admin)
-* `DASHBOARD_PASS`: Sensu dashboard password (default: sensu)
-* `SENSU_CONFIG_URL`: Sensu config url (will download as `/etc/sensu/config.json`)
-* `SENSU_CLIENT_CONFIG_URL`: Sensu client config url (will download as `/etc/sensu/conf.d/client.json`)
-* `SENSU_CHECKS_CONFIG_URL`: Sensu checks config url (will download as `/etc/sensu/conf.d/checks.json`)

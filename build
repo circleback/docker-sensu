@@ -1,1 +1,4 @@
-docker build -t circleback/sensu -t $REGISTRY/sensu .
+#! /bin/bash
+
+docker build -t circleback/sensu .
+docker build -t $REGISTRY/sensu .

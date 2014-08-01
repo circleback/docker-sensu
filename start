@@ -1,1 +1,6 @@
-docker run -d -p 8000:80 -p 8125:8125/udp -p 8126:8126 --name kamon-grafana-dashboard kamon/grafana_graphite
+#! /bin/bash
+
+docker kill sensu
+docker rm sensu
+
+docker run --link etcd:etcd -e 'ETCD_ADDR=$PUBLIC_IP' -d -p 8080:8080 -p 5672:5672 -p 15672:15672 --name sensu circleback/sensu
